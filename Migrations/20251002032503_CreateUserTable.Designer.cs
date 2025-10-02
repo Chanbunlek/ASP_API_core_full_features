@@ -12,8 +12,8 @@ using full_webapi_features.Config;
 namespace full_webapi_features.Migrations
 {
     [DbContext(typeof(DbConnection))]
-    [Migration("20250930083330_User")]
-    partial class User
+    [Migration("20251002032503_CreateUserTable")]
+    partial class CreateUserTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,9 @@ namespace full_webapi_features.Migrations
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
